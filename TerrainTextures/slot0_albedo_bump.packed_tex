@@ -1,0 +1,8 @@
+{
+	"contains_albedo": true,
+	"resolution": 1024,
+	"src": {
+		"a": "res://Textures/Ground015/Ground015_1K_Displacement.png",
+		"rgb": "res://Textures/Ground015/Ground015_1K_Color.png"
+	}
+}

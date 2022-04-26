@@ -1,0 +1,227 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/CameraSetup.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Control
+
+onready var CameraSetupNode = get_node(\"../CameraSetup\")
+onready var Player = get_parent()
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+	
+func _draw():
+	pass
+
+func _process(_delta):
+	update()
+"
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 0.556863 )
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="CapsuleShape" id=5]
+
+[sub_resource type="CapsuleShape" id=6]
+radius = 1.15517
+height = 0.782315
+
+[sub_resource type="CapsuleMesh" id=7]
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.929412, 0.145098, 0.329412, 1 )
+
+[sub_resource type="CubeMesh" id=9]
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0.0901961, 0.0823529, 0.0823529, 1 )
+
+[node name="Player" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.873742 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+CameraSetupNodePath = NodePath("CameraSetup")
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.0842674, -3.68344e-09, 8.70617e-09, 3.68344e-09, 0.0842674, 3.68344e-09, -8.70617e-09, -3.68344e-09, 0.0842674, 0.81451, -1.19209e-07, -2.48387 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="PlayerUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.420471
+margin_top = -1.00455
+margin_right = 0.42041
+margin_bottom = -1.00452
+script = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Prompt" type="MarginContainer" parent="PlayerUI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -81.0
+margin_top = -99.0
+margin_right = 81.0
+margin_bottom = -75.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="PlayerUI/Prompt"]
+margin_right = 162.0
+margin_bottom = 34.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayerUI/Prompt"]
+margin_right = 162.0
+margin_bottom = 34.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 5
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerUI/Prompt/MarginContainer"]
+margin_left = 20.0
+margin_top = 5.0
+margin_right = 142.0
+margin_bottom = 29.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Press" type="Label" parent="PlayerUI/Prompt/MarginContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 35.0
+margin_bottom = 19.0
+size_flags_horizontal = 4
+text = "Press"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonMargin" type="MarginContainer" parent="PlayerUI/Prompt/MarginContainer/HBoxContainer"]
+margin_left = 39.0
+margin_right = 93.0
+margin_bottom = 24.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Panel" type="Panel" parent="PlayerUI/Prompt/MarginContainer/HBoxContainer/ButtonMargin"]
+margin_right = 54.0
+margin_bottom = 24.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="InnerButtonMargin" type="MarginContainer" parent="PlayerUI/Prompt/MarginContainer/HBoxContainer/ButtonMargin"]
+margin_right = 54.0
+margin_bottom = 24.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="KeyButton" type="Label" parent="PlayerUI/Prompt/MarginContainer/HBoxContainer/ButtonMargin/InnerButtonMargin"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 49.0
+margin_bottom = 19.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "adasds"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instructions" type="Label" parent="PlayerUI/Prompt/MarginContainer/HBoxContainer"]
+margin_left = 97.0
+margin_top = 5.0
+margin_right = 122.0
+margin_bottom = 19.0
+size_flags_horizontal = 4
+text = "test"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="PLAYER" type="Area" parent="."]
+collision_layer = 18
+collision_mask = 18
+
+[node name="PlayerCollisionShape" type="CollisionShape" parent="PLAYER"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0589652, 0 )
+shape = SubResource( 6 )
+
+[node name="CameraSetup" parent="." instance=ExtResource( 5 )]
+MakeCurrent = true
+
+[node name="PlayerBody" type="Spatial" parent="."]
+
+[node name="PlayerMesh" type="MeshInstance" parent="PlayerBody"]
+transform = Transform( -4.37114e-08, 1, 0, 0, 0, -1, -1, -4.37114e-08, 0, 0, 0, 0 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
+
+[node name="Eyes" type="MeshInstance" parent="PlayerBody/PlayerMesh"]
+transform = Transform( 0.3, 0, 0, 0, 0, 0.585, 0, -0.2, 0, 0.81506, 0, -0.436034 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="Hand" type="Position3D" parent="PlayerBody/PlayerMesh"]
+transform = Transform( 5.96046e-08, 4.37114e-08, -1, 1, -4.37114e-08, 5.96046e-08, -4.37114e-08, -1, -4.37114e-08, 0.627501, 0.81451, 0 )
+
+[node name="Hands" type="MeshInstance" parent="PlayerBody/PlayerMesh/Hand"]
+transform = Transform( 0.164646, 6.56923e-15, -9.26377e-08, 6.56923e-15, 0.164646, -3.91936e-08, -9.26377e-08, -3.91936e-08, 1.06129, 5.96046e-08, 0, -0.628602 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="BarrelOpening" type="Spatial" parent="PlayerBody/PlayerMesh/Hand"]
+transform = Transform( 1, 9.63373e-16, 0, 9.63373e-16, 1, 0, 0, 0, 1, 0, 0, -1.85637 )
+
+[node name="PlayerFiringRaycast" type="RayCast" parent="PlayerBody/PlayerMesh/Hand"]
+transform = Transform( -1, 9.63373e-16, 8.74228e-08, -6.94715e-16, 1, 0, -8.74228e-08, 0, -1, 1.19209e-07, -1.19209e-07, -3.79377 )
+enabled = true
+cast_to = Vector3( 0, 0, 50 )
+collision_mask = 43
+
+[node name="LookAtReference" type="Spatial" parent="."]

@@ -1,0 +1,9 @@
+{
+	"contains_albedo": false,
+	"resolution": 1024,
+	"src": {
+		"a": "res://Textures/Ground015/Ground015_1K_Roughness.png",
+		"normalmap_flip_y": true,
+		"rgb": "res://Textures/Ground015/Ground015_1K_NormalGL.png"
+	}
+}

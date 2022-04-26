@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HeavyMachineGun_SuperPhat_396324.mp3-60290357156bb4e450e6892835fe445f.mp3str"
+
+[deps]
+
+source_file="res://Audio/HeavyMachineGun_SuperPhat_396324.mp3"
+dest_files=[ "res://.import/HeavyMachineGun_SuperPhat_396324.mp3-60290357156bb4e450e6892835fe445f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

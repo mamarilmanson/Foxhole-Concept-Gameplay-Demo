@@ -1,0 +1,210 @@
+[gd_scene load_steps=40 format=2]
+
+[ext_resource path="res://Particles/WhitePuff000.png" type="Texture" id=1]
+[ext_resource path="res://Particles/WhitePuff/whitePuff07.png" type="Texture" id=2]
+[ext_resource path="res://Particles/WhitePuff/whitePuff01.png" type="Texture" id=3]
+[ext_resource path="res://Particles/WhitePuff/whitePuff11.png" type="Texture" id=4]
+[ext_resource path="res://Particles/WhitePuff/whitePuff06.png" type="Texture" id=5]
+[ext_resource path="res://Particles/WhitePuff/whitePuff08.png" type="Texture" id=6]
+[ext_resource path="res://Particles/WhitePuff/whitePuff10.png" type="Texture" id=7]
+[ext_resource path="res://Particles/WhitePuff/whitePuff12.png" type="Texture" id=8]
+[ext_resource path="res://Particles/WhitePuff/whitePuff13.png" type="Texture" id=9]
+[ext_resource path="res://Particles/WhitePuff/whitePuff14.png" type="Texture" id=10]
+[ext_resource path="res://Particles/WhitePuff/whitePuff15.png" type="Texture" id=11]
+[ext_resource path="res://Particles/WhitePuff/whitePuff16.png" type="Texture" id=12]
+[ext_resource path="res://Particles/WhitePuff/whitePuff04.png" type="Texture" id=13]
+[ext_resource path="res://Particles/WhitePuff/whitePuff05.png" type="Texture" id=14]
+[ext_resource path="res://Particles/WhitePuff/whitePuff17.png" type="Texture" id=15]
+[ext_resource path="res://Particles/WhitePuff/whitePuff00.png" type="Texture" id=16]
+[ext_resource path="res://Particles/WhitePuff/whitePuff18.png" type="Texture" id=17]
+[ext_resource path="res://Particles/WhitePuff/whitePuff03.png" type="Texture" id=18]
+[ext_resource path="res://Particles/WhitePuff/whitePuff02.png" type="Texture" id=19]
+[ext_resource path="res://Particles/WhitePuff/whitePuff09.png" type="Texture" id=20]
+[ext_resource path="res://Particles/WhitePuff/whitePuff22.png" type="Texture" id=21]
+[ext_resource path="res://Particles/WhitePuff/whitePuff24.png" type="Texture" id=22]
+[ext_resource path="res://Particles/WhitePuff/whitePuff19.png" type="Texture" id=23]
+[ext_resource path="res://Particles/WhitePuff/whitePuff20.png" type="Texture" id=24]
+[ext_resource path="res://Particles/WhitePuff/whitePuff23.png" type="Texture" id=25]
+[ext_resource path="res://Particles/WhitePuff/whitePuff21.png" type="Texture" id=26]
+[ext_resource path="res://Scripts/GroundBulletImpact.gd" type="Script" id=27]
+
+[sub_resource type="ParticlesMaterial" id=4]
+flag_align_y = true
+direction = Vector3( 0, 1, 1 )
+spread = 148.85
+gravity = Vector3( 0, -150, 0 )
+initial_velocity = 70.46
+initial_velocity_random = 0.66
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+flags_unshaded = true
+params_cull_mode = 2
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.313726, 0.184314, 0, 0.54902 )
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=5]
+material = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+lifetime_randomness = 0.95
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3( 0, 1, 0 )
+spread = 37.02
+flatness = 0.91
+gravity = Vector3( 0, -100, 0 )
+initial_velocity = 118.13
+initial_velocity_random = 1.0
+
+[sub_resource type="AnimatedTexture" id=11]
+flags = 23
+frames = 25
+fps = 10.0
+frame_0/texture = ExtResource( 16 )
+frame_1/texture = ExtResource( 3 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 19 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 18 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 13 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 14 )
+frame_5/delay_sec = 0.0
+frame_6/texture = ExtResource( 5 )
+frame_6/delay_sec = 0.0
+frame_7/texture = ExtResource( 2 )
+frame_7/delay_sec = 0.0
+frame_8/texture = ExtResource( 6 )
+frame_8/delay_sec = 0.0
+frame_9/texture = ExtResource( 20 )
+frame_9/delay_sec = 0.0
+frame_10/texture = ExtResource( 7 )
+frame_10/delay_sec = 0.0
+frame_11/texture = ExtResource( 4 )
+frame_11/delay_sec = 0.0
+frame_12/texture = ExtResource( 8 )
+frame_12/delay_sec = 0.0
+frame_13/texture = ExtResource( 9 )
+frame_13/delay_sec = 0.0
+frame_14/texture = ExtResource( 10 )
+frame_14/delay_sec = 0.0
+frame_15/texture = ExtResource( 11 )
+frame_15/delay_sec = 0.0
+frame_16/texture = ExtResource( 12 )
+frame_16/delay_sec = 0.0
+frame_17/texture = ExtResource( 15 )
+frame_17/delay_sec = 0.0
+frame_18/texture = ExtResource( 17 )
+frame_18/delay_sec = 0.0
+frame_19/texture = ExtResource( 23 )
+frame_19/delay_sec = 0.0
+frame_20/texture = ExtResource( 24 )
+frame_20/delay_sec = 0.0
+frame_21/texture = ExtResource( 26 )
+frame_21/delay_sec = 0.0
+frame_22/texture = ExtResource( 21 )
+frame_22/delay_sec = 0.0
+frame_23/texture = ExtResource( 25 )
+frame_23/delay_sec = 0.0
+frame_24/texture = ExtResource( 22 )
+frame_24/delay_sec = 0.0
+
+[sub_resource type="SpatialMaterial" id=9]
+flags_transparent = true
+flags_unshaded = true
+params_cull_mode = 2
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.458824, 0.317647, 0.0509804, 0.254902 )
+albedo_texture = SubResource( 11 )
+
+[sub_resource type="QuadMesh" id=10]
+material = SubResource( 9 )
+size = Vector2( 0.5, 0.5 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+flag_align_y = true
+direction = Vector3( 0, 1, 1 )
+spread = 180.0
+gravity = Vector3( 0, 8, 0 )
+initial_velocity = 7.0
+initial_velocity_random = 0.4
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+flags_unshaded = true
+params_cull_mode = 2
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.231373, 0.137255, 0.0156863, 0.0392157 )
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=2]
+material = SubResource( 6 )
+size = Vector2( 8, 8 )
+
+[sub_resource type="QuadMesh" id=7]
+
+[sub_resource type="SphereMesh" id=12]
+
+[node name="GroundBulletImpact" type="Spatial"]
+script = ExtResource( 27 )
+
+[node name="SmallDebris" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38462, 0 )
+emitting = false
+amount = 80
+one_shot = true
+explosiveness = 1.0
+randomness = 0.74
+visibility_aabb = AABB( -4.082, -6.05767, -9.30106, 8, 12.1143, 18.6021 )
+local_coords = false
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
+
+[node name="TallDebris" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38462, 0 )
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+visibility_aabb = AABB( -12.9805, -9.34603, -12.1446, 25.797, 18.6911, 24.2893 )
+local_coords = false
+process_material = SubResource( 8 )
+draw_pass_1 = SubResource( 10 )
+
+[node name="Smoke" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38462, 0 )
+emitting = false
+amount = 120
+lifetime = 2.3
+one_shot = true
+preprocess = 0.09
+randomness = 1.0
+visibility_aabb = AABB( -4.082, -6.05767, -4, 8, 12.1143, 8 )
+local_coords = false
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 36.9516, 0, 0, 0, -1.61521e-06, 36.9516, 0, -36.9516, -1.61521e-06, 0, 0, 0 )
+visible = false
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( -4.33478, 0, 0, 0, 1.89479e-07, -4.33478, 0, 4.33478, 1.89479e-07, 0, 0, 0 )
+visible = false
+mesh = SubResource( 12 )
+material/0 = null

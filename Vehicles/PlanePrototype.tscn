@@ -1,0 +1,189 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scripts/PlanePrototype.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.235294 )
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 506
+corner_radius_bottom_right = 525
+corner_radius_bottom_left = 1024
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1.51295, 1.4537, 7.76855 )
+
+[sub_resource type="CapsuleShape" id=4]
+margin = 0.5
+radius = 0.862014
+height = 0.563328
+
+[sub_resource type="CapsuleShape" id=5]
+radius = 0.589416
+height = 1.61046
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 10.3404, 0.524824, 1.89394 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 3.87697, 0.345795, 0.836599 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 2.05843, 1.72073, 2.32843 )
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 1, 1, 0, 1 )
+
+[sub_resource type="CubeMesh" id=10]
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="CubeMesh" id=12]
+
+[node name="PlanePrototype" type="KinematicBody"]
+collision_layer = 17
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 483.883 ],
+"_edit_vertical_guides_": [ 114.217 ]
+}
+
+[node name="PrototypePlaneUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="PrototypePlaneUI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 26.8701
+margin_top = -200.0
+margin_right = 200.0
+margin_bottom = -28.2843
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlaneAxis" type="Node2D" parent="PrototypePlaneUI/Panel"]
+position = Vector2( 87.4067, 83.8391 )
+
+[node name="Plane" type="Panel" parent="PrototypePlaneUI/Panel/PlaneAxis"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -66.3358
+margin_top = -14.5706
+margin_right = 71.6642
+margin_bottom = 14.4294
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.65146 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.897, -2.3, 1.447 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.918, -2.3, 1.447 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -1.00317, -6.59551 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.687926, 1.43619 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, -0.00477982, -8.13563 )
+shape = SubResource( 7 )
+
+[node name="PilotInteractionRight" type="Area" parent="." groups=[
+"plane",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.48486, -1.43859, -1.65146 )
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape" type="CollisionShape" parent="PilotInteractionRight"]
+shape = SubResource( 8 )
+
+[node name="PilotInteractionLeft" type="Area" parent="." groups=[
+"plane",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.48218, -1.43859, -1.65146 )
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape" type="CollisionShape" parent="PilotInteractionLeft"]
+shape = SubResource( 8 )
+
+[node name="GroundCheck" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9, 0 )
+enabled = true
+cast_to = Vector3( 0, -5, 0 )
+collision_mask = 8
+collide_with_areas = true
+
+[node name="MeshInstances" type="Spatial" parent="."]
+
+[node name="Propeller" type="Spatial" parent="MeshInstances"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.65146 )
+
+[node name="MeshInstance7" type="MeshInstance" parent="MeshInstances/Propeller"]
+transform = Transform( 2, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 7.97684 )
+material_override = SubResource( 9 )
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="MeshInstance8" type="MeshInstance" parent="MeshInstances/Propeller"]
+transform = Transform( 0.25, 0, 0, 0, 2, 0, 0, 0, 0.25, 0, 0, 7.97684 )
+material_override = SubResource( 11 )
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="MeshInstance4" type="MeshInstance" parent="MeshInstances"]
+transform = Transform( 0.222128, -1.77636e-15, 0, 0, -5.9915e-08, -1.3707, 8.88178e-16, 0.452066, -1.97604e-08, 2.91933, -2.06099, 1.43915 )
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="MeshInstance5" type="MeshInstance" parent="MeshInstances"]
+transform = Transform( 0.222128, 0, 0, 0, -5.9915e-08, -1.3707, 0, 0.452066, -1.97604e-08, -2.89372, -2.06099, 1.43915 )
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="MeshInstance6" type="MeshInstance" parent="MeshInstances"]
+transform = Transform( 0.222128, 0, 0, 0, -5.9915e-08, -1.3707, 0, 0.452066, -1.97604e-08, 0.0328066, -0.883527, -6.60718 )
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="MeshInstances"]
+transform = Transform( 1.43371, 0, 0, 0, -3.32294e-07, -1.3707, 0, 7.602, -5.9915e-08, 0, 0, -1.65146 )
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="MeshInstances"]
+transform = Transform( 10.1744, -3.51819e-08, 5.77257e-16, 0, -5.39988e-08, -0.463708, 4.16186e-07, 1.77434, -2.9113e-08, 0, -0.698095, 1.42859 )
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="MeshInstances"]
+transform = Transform( 3.80866, 0, -1.05879e-22, 0, -1.31981e-08, -0.301938, 0, 0.804383, -3.51607e-08, 0, 0, -8.19554 )
+mesh = SubResource( 12 )
+material/0 = null

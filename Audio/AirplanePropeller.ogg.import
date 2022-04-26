@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/AirplanePropeller.ogg-f028fa5956b8b1127c59563e33f2278d.oggstr"
+
+[deps]
+
+source_file="res://Audio/AirplanePropeller.ogg"
+dest_files=[ "res://.import/AirplanePropeller.ogg-f028fa5956b8b1127c59563e33f2278d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
